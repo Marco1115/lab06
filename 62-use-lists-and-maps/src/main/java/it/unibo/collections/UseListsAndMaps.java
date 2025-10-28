@@ -13,6 +13,7 @@ import java.util.concurrent.TimeUnit;
 public final class UseListsAndMaps {
 
     private static final int ADDED_ELEMS = 100_000;
+    private static final int READ_TEST = 1_000;
 
     private UseListsAndMaps() {
     }
@@ -101,6 +102,42 @@ public final class UseListsAndMaps {
          * LinkedList, using the collections of point 5. In order to measure
          * times, use as example TestPerformance.java.
          */
+        /* ArrayList read benchmark */
+        long arrayReadTime = System.nanoTime();
+        for (int i = 1; i <= READ_TEST; i++) {
+            arrayList.get(arrayList.size() / 2);
+        }
+        arrayReadTime = System.nanoTime() - arrayReadTime;
+
+        /* LinkedList read benchmark */
+        long linkedReadTime = System.nanoTime();
+        for (int i = 1; i <= READ_TEST; i++) {
+            linkedList.get(linkedList.size() / 2);
+        }
+        linkedReadTime = System.nanoTime() - linkedReadTime;
+
+        /* print benchmark results */
+        final var arrayReadMillis = TimeUnit.NANOSECONDS.toMillis(arrayReadTime);
+        System.out.println(
+            "Reading "
+                + READ_TEST
+                + " ints from the ArrayList middle took "
+                + arrayReadTime
+                + "ns ("
+                + arrayReadMillis
+                + "ms)"
+        );
+
+        final var linkedReadMillis = TimeUnit.NANOSECONDS.toMillis(linkedReadTime);
+        System.out.println(
+            "Reading "
+                + READ_TEST
+                + " ints from the LinkedList middle took "
+                + linkedReadTime
+                + "ns ("
+                + linkedReadMillis
+                + "ms)"
+        );
         /*
          * 7) Build a new Map that associates to each continent's name its
          * population:
