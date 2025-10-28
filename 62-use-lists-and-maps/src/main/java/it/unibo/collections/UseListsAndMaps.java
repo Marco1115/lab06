@@ -1,6 +1,7 @@
 package it.unibo.collections;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -165,5 +166,11 @@ public final class UseListsAndMaps {
         /*
          * 8) Compute the population of the world
          */
+        final Collection<Long> populations = populationMap.values();
+        long globalPopulation = 0;
+        for (long p: populations) {
+            globalPopulation += p;
+        }
+        System.out.println("The global population is: " + globalPopulation);
     }
 }
