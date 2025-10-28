@@ -61,7 +61,11 @@ public final class UseArithmeticService {
          * This method should re-try to retrieve information from the provided server, catching all IOExceptions,
          * until it succeeds.
          */
-        return null;
+        try {
+            return server.receiveResponse();
+        } catch (IOException e) {
+            return retryReceiveOnNetworkError(server);
+        }
     }
 
     private static void assertEqualsAsDouble(final String expected, final String actual) {
