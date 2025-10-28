@@ -4,12 +4,15 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Example class using {@link List} and {@link Map}.
  *
  */
 public final class UseListsAndMaps {
+
+    private static final int ADDED_ELEMS = 100_000;
 
     private UseListsAndMaps() {
     }
@@ -48,7 +51,7 @@ public final class UseListsAndMaps {
         for (int element: arrayList) {
             System.out.print(element + " ");
         }
-        System.err.println();
+        System.out.println();
         /*
          * 5) Measure the performance of inserting new elements in the head of
          * the collection: measure the time required to add 100.000 elements as
@@ -56,6 +59,42 @@ public final class UseListsAndMaps {
          * using the previous lists. In order to measure times, use as example
          * TestPerformance.java.
          */
+        /* ArrayList benchmark */
+        long arrayTime = System.nanoTime();
+        for (int i = 1; i <= ADDED_ELEMS; i++) {
+            arrayList.add(0, i);
+        }
+        arrayTime = System.nanoTime() - arrayTime;
+
+        /* LinkedList benchmark */
+        long linkedTime = System.nanoTime();
+        for (int i = 1; i <= ADDED_ELEMS; i++) {
+            linkedList.add(0, i);
+        }
+        linkedTime = System.nanoTime() - linkedTime;
+
+        /* print benchmark results */
+        final var ArrayMillis = TimeUnit.NANOSECONDS.toMillis(arrayTime);
+        System.out.println(
+            "Inserting "
+                + ADDED_ELEMS
+                + " ints into the ArrayList head took "
+                + arrayTime
+                + "ns ("
+                + ArrayMillis
+                + "ms)"
+        );
+
+        final var LinkedMillis = TimeUnit.NANOSECONDS.toMillis(linkedTime);
+        System.out.println(
+            "Inserting "
+                + ADDED_ELEMS
+                + " ints into the LinkedList head took "
+                + linkedTime
+                + "ns ("
+                + LinkedMillis
+                + "ms)"
+        );
         /*
          * 6) Measure the performance of reading 1000 times an element whose
          * position is in the middle of the collection for both ArrayList and
