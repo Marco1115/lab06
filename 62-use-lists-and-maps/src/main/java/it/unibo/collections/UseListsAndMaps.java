@@ -77,25 +77,25 @@ public final class UseListsAndMaps {
         linkedTime = System.nanoTime() - linkedTime;
 
         /* print benchmark results */
-        final var ArrayMillis = TimeUnit.NANOSECONDS.toMillis(arrayTime);
+        final var arrayMillis = TimeUnit.NANOSECONDS.toMillis(arrayTime);
         System.out.println(
             "Inserting "
                 + ADDED_ELEMS
                 + " ints into the ArrayList head took "
                 + arrayTime
                 + "ns ("
-                + ArrayMillis
+                + arrayMillis
                 + "ms)"
         );
 
-        final var LinkedMillis = TimeUnit.NANOSECONDS.toMillis(linkedTime);
+        final var linkedMillis = TimeUnit.NANOSECONDS.toMillis(linkedTime);
         System.out.println(
             "Inserting "
                 + ADDED_ELEMS
                 + " ints into the LinkedList head took "
                 + linkedTime
                 + "ns ("
-                + LinkedMillis
+                + linkedMillis
                 + "ms)"
         );
         /*
