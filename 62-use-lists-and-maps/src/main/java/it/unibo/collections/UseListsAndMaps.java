@@ -1,6 +1,7 @@
 package it.unibo.collections;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -154,6 +155,13 @@ public final class UseListsAndMaps {
          *
          * Oceania -> 38,304,000
          */
+        final Map<String, Long> populationMap = new HashMap<>(6);
+        populationMap.put("Africa", 1_110_635_000L);
+        populationMap.put("Americas", 972_005_000L);
+        populationMap.put("Antartica", 0L);
+        populationMap.put("Asia", 4_298_723_000L);
+        populationMap.put("Europe", 742_452_000L);
+        populationMap.put("Oceania", 38_304_000L);
         /*
          * 8) Compute the population of the world
          */
