@@ -7,14 +7,17 @@ import it.unibo.generics.graph.api.Graph;
 
 class GraphImpl<N> implements Graph<N> {
 
+    private final Set<N> nodesSet;
+    private final Map<N, Set<N>> edgesMap;
+
     @Override
-    public void addNode(N node) {
+    public void addNode(final N node) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'addNode'");
     }
 
     @Override
-    public void addEdge(N source, N target) {
+    public void addEdge(final N source, final N target) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'addEdge'");
     }
@@ -26,13 +29,13 @@ class GraphImpl<N> implements Graph<N> {
     }
 
     @Override
-    public Set<N> linkedNodes(N node) {
+    public Set<N> linkedNodes(final N node) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'linkedNodes'");
     }
 
     @Override
-    public List<N> getPath(N source, N target) {
+    public List<N> getPath(final N source, final N target) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'getPath'");
     }
