@@ -23,20 +23,17 @@ class GraphImpl<N> implements Graph<N> {
 
     @Override
     public void addEdge(final N source, final N target) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'addEdge'");
+        this.edgesMap.get(source).add(target);
     }
 
     @Override
     public Set<N> nodeSet() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'nodeSet'");
+        return this.edgesMap.keySet();
     }
 
     @Override
     public Set<N> linkedNodes(final N node) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'linkedNodes'");
+        return this.edgesMap.get(node);
     }
 
     @Override
