@@ -1,6 +1,9 @@
 package it.unibo.generics.graph.impl;
 
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import it.unibo.generics.graph.api.Graph;
@@ -9,10 +12,13 @@ class GraphImpl<N> implements Graph<N> {
 
     private final Map<N, Set<N>> edgesMap;
 
+    public GraphImpl(){
+        this.edgesMap = new HashMap<>();
+    }
+
     @Override
     public void addNode(final N node) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'addNode'");
+        this.edgesMap.put(node, new HashSet<>());
     }
 
     @Override
