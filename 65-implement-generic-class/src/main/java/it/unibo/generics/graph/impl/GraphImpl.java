@@ -7,7 +7,6 @@ import it.unibo.generics.graph.api.Graph;
 
 class GraphImpl<N> implements Graph<N> {
 
-    private final Set<N> nodesSet;
     private final Map<N, Set<N>> edgesMap;
 
     @Override
