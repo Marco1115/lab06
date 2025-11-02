@@ -38,8 +38,8 @@ public class GraphImpl<N> implements Graph<N> {
 
     @Override
     public List<N> getPath(final N source, final N target) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getPath'");
+        GraphVisit<N> graphVisitor = new GraphVisit<>(this);
+        return graphVisitor.getPath(source, target);
     }
 
 }

@@ -56,6 +56,7 @@ public final class UseGraph {
         /*
          * Either the path b,c,a or b,c,d,e,a
          */
+        System.out.println(graph.getPath(B, A));
         assertIsAnyOf(
             graph.getPath(B, A),
             Arrays.asList(B, C, A),
