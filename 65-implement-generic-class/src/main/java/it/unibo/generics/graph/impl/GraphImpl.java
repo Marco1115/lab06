@@ -8,7 +8,7 @@ import java.util.Set;
 
 import it.unibo.generics.graph.api.Graph;
 
-class GraphImpl<N> implements Graph<N> {
+public class GraphImpl<N> implements Graph<N> {
 
     private final Map<N, Set<N>> edgesMap;
 
